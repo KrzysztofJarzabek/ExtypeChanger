@@ -98,7 +98,7 @@ namespace ExtypeChanger
         {
             if (newExtentionTextBox.Text.Length == 0) DisplayStatus("No new extetntion specified.");
             else if (itemsFoundList.Items.Count == 0) DisplayStatus("No items found.");
-            else if (!newExtentionTextBox.Text.StartsWith(".")) DisplayStatus("Extention starts from dot.");
+            //else if (!newExtentionTextBox.Text.StartsWith(".")) DisplayStatus("Extention starts from dot.");
             else
             {
                 foreach (var item in filesList)
@@ -149,7 +149,7 @@ namespace ExtypeChanger
         private string IndicateNewPath(string fullFilePath)
         {
             string directoryName, fileName, newExtentionPath;
-
+           
             directoryName = System.IO.Path.GetDirectoryName(fullFilePath);
             fileName = System.IO.Path.GetFileNameWithoutExtension(fullFilePath);
             newExtentionPath = directoryName + System.IO.Path.DirectorySeparatorChar + fileName + newExtentionTextBox.Text;
@@ -167,5 +167,9 @@ namespace ExtypeChanger
             statusTextBlock.Text = messageText;
         }
 
+        private void Exti_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }
